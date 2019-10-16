@@ -438,6 +438,85 @@
       </div>
     </section>
   
+    
+    <div class='fall-savings popup with-stage' style='padding: 0;'>
+      <img src='img/fallseasonsavings.jpg' alt='Fall Season Savings'>
+    </div>
+
+    <style>
+      .popup {
+        top: 25vh;
+        left: 50%;
+        width: 100%;
+        z-index: 100;
+        max-width: 500px;
+        margin-top: -50px;
+        margin-left: -250px;
+        padding: 25px;
+        position: fixed;
+        background-color: #fff;
+        box-shadow: 0 20px 25px rgba(0,0,0,.2);
+        box-sizing: border-box;
+      }
+      .popup.with-stage:before {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        display: block;
+        content: '';
+        position: absolute;
+        background-color: #fff;
+      }
+      .fall-savings {
+        width: 100%;
+        padding: 0;
+        opacity: 0;
+        cursor: pointer;
+        transition: all .5s ease;
+      }
+      .fall-savings img {
+        width: 100%;
+        display: inline-block;
+      }
+      @media (max-width: 415px) {
+        .popup {
+          top: 25vh;
+          width: 350px;
+          margin-left: -175px;
+        }
+      }
+      @media 
+        (min-width: 416px) and
+        (max-width: 800px) {
+        .popup {
+          top: 30vh;
+          width: 350px;
+          margin-left: -175px;
+        }
+      }
+    </style>
+    <script>
+      (function () {
+        'use strict';
+        var fallSavings = document.querySelector('.fall-savings');
+        setTimeout(function() {
+          fallSavings.style.opacity = 1;
+        },1000);
+        
+        window.addEventListener('click', function (e){
+          console.log(e.target.tagName)
+          if (e.target.parentElement.className === 'fall-savings popup with-stage') {
+            fallSavings.style.opacity = 0;
+            setTimeout(function() {
+              fallSavings.style.display = 'none';
+            },600)
+          }
+        });
+      }());
+    </script>
+  
     <section class='footer'>
       <p class='text-center'>
         Bright Cleaning is a proud donor to the John Martins Foundation. <a target="_blank" href='/img/johnmartins.jpg'><strong>Learn more about John Martins Foundation.</strong></a>
